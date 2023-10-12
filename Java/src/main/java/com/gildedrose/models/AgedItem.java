@@ -1,27 +1,23 @@
 package com.gildedrose.models;
 
+import com.gildedrose.models.contracts.EspecialItems;
 import com.gildedrose.models.contracts.UpdatableItem;
 
 
-public class AgedItem extends UpdatableItem {
+public class AgedItem extends EspecialItems {
 
-    public AgedItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+
+    public AgedItem(UpdatableItem item) {
+        super(item);
     }
 
     @Override
-    public void updateQuality() {
-        this.updateSellIn();
-
-        if(this.sellIn >= 0){
-            this.quality = Math.min( quality + 1, 50 );
+    public void updateItemQuality() {
+        if(item.getSellIn() >= 0){
+            item.setQuality(Math.min( item.getQuality() + 1, 50 ));
         }
         else{
-            this.quality = Math.min( quality + 2, 50 );
+            item.setQuality(Math.min( item.getQuality() + 2, 50 ));
         }
-    }
-
-    private void updateSellIn(){
-        this.sellIn -= 1;
     }
 }

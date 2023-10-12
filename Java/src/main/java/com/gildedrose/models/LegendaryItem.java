@@ -1,13 +1,15 @@
 package com.gildedrose.models;
 
+import com.gildedrose.models.contracts.EspecialItems;
 import com.gildedrose.models.contracts.UpdatableItem;
 
-public class LegendaryItem extends UpdatableItem {
-    public LegendaryItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+public class LegendaryItem extends EspecialItems {
+
+    public LegendaryItem(UpdatableItem item) {
+        super(item);
     }
 
-    public void updateQuality(){
-        this.quality = 80;
+    public void updateItemQuality(){
+        item.setQuality(80);
     }
 }

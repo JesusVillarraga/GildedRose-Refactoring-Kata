@@ -1,19 +1,15 @@
 package com.gildedrose.models;
 
+import com.gildedrose.models.contracts.EspecialItems;
 import com.gildedrose.models.contracts.UpdatableItem;
 
-public class ConjuredItem extends UpdatableItem {
+public class ConjuredItem extends EspecialItems {
 
-    public ConjuredItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public ConjuredItem(UpdatableItem item) {
+        super(item);
     }
 
-    public void updateQuality(){
-        this.quality = Math.max( quality - 2, 0 );
-        this.updateSellIn();
-    }
-
-    private void updateSellIn(){
-        this.sellIn -= 1;
+    public void updateItemQuality(){
+        item.setQuality(Math.max( item.getQuality() - 2, 0 ));
     }
 }

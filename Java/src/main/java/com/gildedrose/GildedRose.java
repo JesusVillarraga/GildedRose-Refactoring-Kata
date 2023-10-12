@@ -3,19 +3,16 @@ package com.gildedrose;
 import com.gildedrose.models.contracts.UpdatableItem;
 
 class GildedRose {
-    Item[] items;
+    UpdatableItem[] items;
 
-    public GildedRose(Item[] items) {
+    public GildedRose(UpdatableItem[] items) {
         this.items = items;
     }
 
     public void updateQuality() {
-        for (Item item : items) {
-            this.updateQualityItem((UpdatableItem) item);
+        for (UpdatableItem item : items) {
+            item.updateSellIn();
+            item.updateQuality();
         }
-    }
-
-    private void updateQualityItem(UpdatableItem item){
-        item.updateQuality();
     }
 }

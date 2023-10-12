@@ -1,12 +1,20 @@
 package com.gildedrose.models.contracts;
 
 import com.gildedrose.Item;
+import com.gildedrose.models.LegendaryItem;
+import com.gildedrose.models.NormalItem;
 
-public abstract class UpdatableItem extends Item {
+public interface UpdatableItem {
 
-    public UpdatableItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
-    }
+    String getName();
+    int getSellIn();
+    int getQuality();
 
-    public abstract void updateQuality();
+    void setName(String name);
+    void setSellIn(int sellIn);
+    void setQuality(int quality);
+
+    public void updateQuality();
+
+    public void updateSellIn();
 }
